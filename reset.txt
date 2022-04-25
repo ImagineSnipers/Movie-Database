@@ -1,0 +1,25 @@
+DROP TABLE IF EXISTS [Book];
+
+CREATE TABLE [Book] (
+	[ISBN] INT PRIMARY KEY,
+	[Title] TEXT,
+	[Price] REAL,
+	[AuthorID] INT
+);
+
+DROP TABLE IF EXISTS [Author];
+
+CREATE TABLE [Author] (
+	[AuthorID] INT PRIMARY KEY,
+	[Last] TEXT,
+	[First] TEXT
+);
+
+INSERT INTO Book VALUES (1, 'Book of JOD', 9999.99, 42);
+INSERT INTO Book VALUES (2, 'Prey', 7.99, 695);
+INSERT INTO Book VALUES (3, 'Star Trek', 9.99, 789);
+INSERT INTO Book VALUES (4, 'Lost Prince (The)', 7.99, 588);
+
+SELECT * FROM Book 
+LEFT OUTER JOIN Author
+ON Book.AuthorID = Author.AuthorID;
